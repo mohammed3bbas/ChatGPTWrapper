@@ -23,28 +23,12 @@ def welcome():
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    try:
-        user_message = request.json
-    except UnsupportedMediaType:
-        # Not JSON request
-        return jsonify({"error": ERROR_UNSPORTED_MEDIA}), 415
-    except BadRequest:
-        # Handle invalid JSON format
-        return jsonify({"error": ERROR_INVALID_JSON}), 400
+    is_valid, result = validate_request(request)
 
-    if not user_message:
-        return jsonify({"error": ERROR_EMPTY_JSON}), 400
+    if (not is_valid):
+        return result
 
-    message = user_message.get("message")
-    # Handle missing user message
-    if not message:
-        return jsonify({"error": ERROR_MISSING_MESSAGE}), 400
-
-    model = user_message.get("model")
-    if not model:
-        return jsonify({"error": ERROR_MISSING_MODEL}), 400
-
-    # Replace this with your GPT-3.5 Turbo code to generate the completion
+    message, model = result
     if (not messages_history):
         messages_history.append(SYSTEM_PROMPT)
 
@@ -61,3 +45,27 @@ def chat():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+def validate_request(request):
+    try:
+        user_message = request.json
+    except UnsupportedMediaType:
+        # Not JSON request
+        return False, (jsonify({"error": ERROR_UNSPORTED_MEDIA}), 415)
+    except BadRequest:
+        # Handle invalid JSON format
+        return False, (jsonify({"error": ERROR_INVALID_JSON}), 400)
+
+    if not user_message:
+        return False, (jsonify({"error": ERROR_EMPTY_JSON}), 400)
+
+    message = user_message.get("message")
+    if not message:
+        return False, (jsonify({"error": ERROR_MISSING_MESSAGE}), 400)
+
+    model = user_message.get("model")
+    if not model:
+        return False, (jsonify({"error": ERROR_MISSING_MODEL}), 400)
+
+    return True, (message, model)
