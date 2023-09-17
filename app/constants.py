@@ -7,7 +7,9 @@ SYSTEM_PROMPT = {
 }
 WELCOME_MESSAGE = "Welcome to ChatGPT API Wrapper!"
 ERROR_MISSING_MESSAGE = "Missing 'message' in request JSON"
+ERROR_MISSING_MODEL = "Missing 'model' in request JSON"
 ERROR_INVALID_JSON = "Invalid JSON format"
 ERROR_UNSPORTED_MEDIA = "Unsupported Media Type"
 ERROR_EMPTY_JSON = "Empty JSON request body"
+ERROR_INVALID_COMPLETION_TYPE = "Invalid model completion type"
 GPT_3_5_TURBO_MODEL = "gpt-3.5-turbo-0613"
