@@ -2,6 +2,7 @@ import os
 
 import openai
 from flask import Flask, jsonify, request
+from config import CHAT_MODEL
 from models.validator import Validator
 from models.chat_completion import ChatCompletionFactory
 
@@ -27,14 +28,14 @@ def chat():
     if (not is_valid):
         return result
 
-    message, model = result
+    message = result
     if (not messages_history):
         messages_history.append(SYSTEM_PROMPT)
 
     messages_history.append({"role": Role.USER.value, "content": message})
 
     try:
-        chat_completion = ChatCompletionFactory.create_chat_completion(model)
+        chat_completion = ChatCompletionFactory.create_chat_completion(CHAT_MODEL)
         completion_message = chat_completion.generate_completion(
             messages_history)
         messages_history.append(completion_message)

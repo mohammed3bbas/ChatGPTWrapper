@@ -1,5 +1,5 @@
 from constants import (ERROR_EMPTY_JSON, ERROR_INVALID_JSON,
-                       ERROR_MISSING_MESSAGE, ERROR_UNSPORTED_MEDIA, ERROR_MISSING_MODEL)
+                       ERROR_MISSING_MESSAGE, ERROR_UNSPORTED_MEDIA)
 
 from werkzeug.exceptions import BadRequest, UnsupportedMediaType
 from flask import jsonify
@@ -22,13 +22,12 @@ class Validator:
 
         Returns:
             tuple: A tuple containing a Boolean indicating validation success,
-                   and either validated message and model or a JSON error response.
+                   and either validated message or a JSON error response.
 
                    If validation fails, the second element of the tuple will be a JSON
                    error response, and the first element will be False (not valid).
 
-                   If validation succeeds, the second element of the tuple will be a tuple
-                   containing the validated message and model, and the first element will be True (valid).
+                   If validation succeeds, the second element of the tuple will be the validated message, and the first element will be True (valid).
         """
         try:
             user_message = request.json
@@ -46,8 +45,4 @@ class Validator:
         if not message:
             return False, (jsonify({"error": ERROR_MISSING_MESSAGE}), 400)
 
-        model = user_message.get("model")
-        if not model:
-            return False, (jsonify({"error": ERROR_MISSING_MODEL}), 400)
-
-        return True, (message, model)
+        return True, message
