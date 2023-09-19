@@ -2,12 +2,11 @@ import os
 
 import openai
 from flask import Flask, jsonify, request
-from app.config import CHAT_MODEL
-from app.models.validator import Validator
-from app.models.chat_completion import ChatCompletionFactory
 
-from app.constants import SYSTEM_PROMPT, WELCOME_MESSAGE
+from app.constants import CHAT_MODEL, SYSTEM_PROMPT, WELCOME_MESSAGE
 from app.enums import Role
+from app.models.chat_completion_factory import ChatCompletionFactory
+from app.models.validator import Validator
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")

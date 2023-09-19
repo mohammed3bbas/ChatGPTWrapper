@@ -1,1 +1,0 @@
-CHAT_MODEL = 'gpt'
