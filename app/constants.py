@@ -1,4 +1,4 @@
-from enums import Role
+from app.enums import Role
 
 # System prompt to set initial behavior
 SYSTEM_PROMPT = {

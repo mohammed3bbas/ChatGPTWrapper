@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 import openai
 from openai.error import OpenAIError
 
-from constants import ERROR_INVALID_COMPLETION_TYPE, GPT_3_5_TURBO_MODEL
+from app.constants import ERROR_INVALID_COMPLETION_TYPE, GPT_3_5_TURBO_MODEL
 
 
 class ChatCompletionBase(ABC):
