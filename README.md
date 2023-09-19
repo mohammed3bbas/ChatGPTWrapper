@@ -14,6 +14,8 @@ This project is a simple chatbot API built on flask using OpenAI GPT-3.5 turbo L
 - all other dependencies mentioned in the `requirements.txt` file
 ---
 # Setup and run  
+
+## Setup 
 - Clone repository
 
 ```
@@ -36,6 +38,7 @@ python -m venv .venv
 ```
 pip install -r requirements.txt
 ```
+## Run server
 - go to app directory 
 ```
 cd .\app\
@@ -46,15 +49,15 @@ run flask
 ```
 if you want to run in different port use this 
 ```
-run flask  -p $PORT_NUMBER
+run flask  -p [PORT_NUMBER]
 ```
 
-## For Windows Users
+### For Windows Users
 
 - Create virtual enviroment, install project dependencies and run the server by using this cmd script.
 
 ```
-.\run_app.cmd (PORT_NUMBER)
+.\run_app.cmd [PORT_NUMBER]
 ```
 By default, the server runs on port 5000, but you can specify a different port if needed:     
 Example :
@@ -65,7 +68,17 @@ or run on default port (5000)
 ```
 ./run_app.cmd
 ```
+
+## Run unit tests
+
+- this project is covered by unit tests using Pytest, to run unit tests
+```
+pytest .\tests
+```
+
 ---
+
+
 
 
   
