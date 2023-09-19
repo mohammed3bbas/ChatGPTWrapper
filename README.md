@@ -49,11 +49,11 @@ cd .\app\
 ```
 - run flask server (by default port 5000)
 ```
-run flask 
+flask run  
 ```
 if you want to run in different port use this: 
 ```
-run flask  -p [PORT_NUMBER]
+flask run  -p [PORT_NUMBER]
 ```
 
 ### For Windows Users
