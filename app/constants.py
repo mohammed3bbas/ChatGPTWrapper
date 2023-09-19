@@ -1,4 +1,4 @@
-from enums import Role
+from app.enums import Role
 
 # System prompt to set initial behavior
 SYSTEM_PROMPT = {
@@ -12,3 +12,4 @@ ERROR_UNSPORTED_MEDIA = "Unsupported Media Type"
 ERROR_EMPTY_JSON = "Empty JSON request body"
 ERROR_INVALID_COMPLETION_TYPE = "Invalid model completion type"
 GPT_3_5_TURBO_MODEL = "gpt-3.5-turbo-0613"
+CHAT_MODEL = 'gpt'

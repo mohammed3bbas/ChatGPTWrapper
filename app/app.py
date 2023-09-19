@@ -2,12 +2,11 @@ import os
 
 import openai
 from flask import Flask, jsonify, request
-from config import CHAT_MODEL
-from models.validator import Validator
-from models.chat_completion import ChatCompletionFactory
 
-from constants import SYSTEM_PROMPT, WELCOME_MESSAGE
-from enums import Role
+from app.constants import CHAT_MODEL, SYSTEM_PROMPT, WELCOME_MESSAGE
+from app.enums import Role
+from app.models.chat_completion_factory import ChatCompletionFactory
+from app.models.validator import Validator
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -26,7 +25,7 @@ def chat():
     is_valid, result = Validator.chat_request_validator(request)
 
     if (not is_valid):
-        return result
+        return jsonify(result[0]) , result[1]
 
     message = result
     if (not messages_history):
