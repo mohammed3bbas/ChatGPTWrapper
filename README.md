@@ -17,7 +17,7 @@ This project is a simple chatbot API built on flask using OpenAI GPT-3.5 turbo L
 - Clone repository
 
 ```
-git Clone https://github.com/mohammed3bbas/ChatGPTWrapper.git
+git clone https://github.com/mohammed3bbas/ChatGPTWrapper.git
 ```
 - Create a `.env` file in the project root directory, containing your OpenAI secret key in the following format:
 
