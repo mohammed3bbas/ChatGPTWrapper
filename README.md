@@ -2,12 +2,12 @@
 
 This project is a simple chatbot API built on flask using OpenAI GPT-3.5 turbo LLM. it provides two APIs to interact with the chatbot
 - GET ('/') : it sends a welcome message from chatbot 
-- POST ('/chat') : it allwows the users to make conversition with the chatbot and receive chatbot response as a json by the model.  
+- POST ('/chat') : it allows the users to make conversation with the chatbot and receive chatbot response as a json by the model.  
 ---
 # Prerequisites
 - Python > 3.6
-  if could be installed from https://www.python.org/downloads/    
-  You can check you python verison using this command:
+  it could be installed from https://www.python.org/downloads/    
+  You can check you python version using this command:
   ```
   python --version
   ```
@@ -30,15 +30,15 @@ cd .\ChatGPTWrapper\
 ```
 OPENAI_API_KEY='YOUR_SECRET_OPENAI_KEY'
 ```
-- create virtual enviroment (if you are Windows user you can skip this and follow instruction [here](#for-windows-users) .
+- create virtual environment (if you are Windows user you can skip this and follow instruction [here](#for-windows-users) .
 ```
 python -m venv .venv
 ```
-- activate your virtual enviroment.
+- activate your virtual environment.
 ```
 .venv\Scripts\activate
 ```
-- install all dependancies .
+- install all dependencies .
 ```
 pip install -r requirements.txt
 ```
@@ -58,7 +58,7 @@ flask run  -p [PORT_NUMBER]
 
 ### For Windows Users
 
-- Create virtual enviroment, install project dependencies and run the server by using this cmd script.
+- Create virtual environment, install project dependencies and run the server by using this cmd script.
 
 ```
 .\run_app.cmd [PORT_NUMBER]
